@@ -1,0 +1,1 @@
+Only sample images are kept in the Images folder.Entire dataset can be downloaded from : https://www.kaggle.com/datasets/eeshawn/flickr30k?select=flickr30k_images

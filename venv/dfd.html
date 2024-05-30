@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+function showimage() {
+if (!document.images)
+return
+document.images.imageDefault.src=
+document.form1.vinylColor.options[document.form1.vinylColor.selectedIndex].value}
+
+</script>
+
+<body>
+<form name="form1" id="form1" method="post" action="theaction.php">
+<SELECT id="vinylColor" NAME="vinylColor" SIZE="1" nChange="showimage()">
+<option value="image1.gif">120-Blue</option>
+<option value="image2.gif">121-Red</option>
+<option value="image3.gif">125-Yellow</option>
+</select>
+</form>
+
+<div id="swatch" width: 145px;"><IMG SRC="blank.gif" NAME="imageDefault" WIDTH="135"
+HEIGHT="135" BORDER="0"/>
+<form>
+
+</form>
+</body>
+</html>

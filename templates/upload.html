@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Image Caption</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    
+    <style>
+        #panel, .flip {
+          font-size: 16px;
+          padding: 10px;
+          text-align: center;
+          color: black;
+          margin: auto;
+        }
+
+        #panel {
+          display: none;
+        }
+    </style>
+    <title>Caption Generator</title>
+</head>
+
+    <body class="main-layout inner_page Coach_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="static/images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo"> <a href="home"><img src="static/images/logo7.jpg" alt="#"></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <div class="menu-area">
+                            <div class="limit-box">
+                                <nav class="main-menu">
+                                    <ul class="menu-area-main">
+                                        <li> <a href="home">Home</a> </li>
+                                        <li> <a href="aboutus">About us</a> </li>
+                                        {% if session['loggedin'] %}
+                                            <li> <a href="ourproject">Our Project</a> </li>
+                                        {% endif %}
+                                        {% if session['admin'] %}
+                                            <li> <a href="users">Users</a> </li>
+                                        {% else %}
+                                            <!-- <li> <a href="contact">Contact us</a> </li> -->
+                                        {% endif %}
+                                        {% if session['loggedin'] %}
+                                            <li> <a href="logout">Logout</a> </li>
+                                        {% else %}
+                                            <li> <a href="login">Login</a> </li>
+                                        {% endif %}
+                                        {% if not session['loggedin']%}
+                                            <li> <a href="register">Register</a> </li>
+                                        {% endif %}
+
+                                        <li class="mean-last"> <a href="#"><img src="static/images/top-icon.png" alt="#" /></a> </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+
+<body>
+
+    <center>
+    <div>
+        <img src={{ url_for('send_image', filename=img_name) }} width=448 height=336 vspace=10px >
+    </div>
+
+    <div>
+
+     <input class="btn btn-outline-secondary" style="margin-bottom: 15px" onclick="myFunction()" type="button" value="Generate Captions">
+     <a class="btn btn-outline-secondary" style="margin-bottom: 15px" href="{{ url_for('ourproject') }}" role="button">Upload a different Image</a>
+
+        <div id="panel">
+            {{ cap }}
+        </div>
+    </div>
+
+    </center>
+    <script>
+    function myFunction() {
+      document.getElementById("panel").style.display = "block";
+    }
+    </script>
+    
+    <!-- footer -->
+<footer class="container-fluid bg-light mt-5">
+    <div class="container">
+      <p class="text-center py-3">Copyright &copy; 2023 Image Caption Generator</p>
+    </div>
+</footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/jquery-3.0.0.min.js"></script>
+    <script src="static/js/plugin.js"></script>
+
+    <!-- sidebar -->
+    <script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/js/custom.js"></script>
+</body>
+</html>
