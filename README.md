@@ -4,9 +4,7 @@
 * For the image caption generator, Flickr30K dataset is used. There are also other datasets like Flickr8k and MSCOCO dataset. The Flickr30k dataset contains about 30000 images each with 5 captions.
 
 ### Reading the data
-* I created a dictionary which contains the name of the image without its extension type as a key and a list of the 5 captions for the corresponding images as values. In our datasets, there consists of large number of words where the top 50 most occurring and least occurring word are shown as follows:
-![](CODE/images/words.JPG)
-
+* I created a dictionary which contains the name of the image without its extension type as a key and a list of the 5 captions for the corresponding images as values. In our datasets, there consists of large number of words.
 ### Data Cleaning
 * Lowercasting all the characters and converting all the non-alphabetic characters (such as ‘#’, ‘%’, ‘$’, ‘&’, ‘@’ etc.), removing them and saving to a new file named ‘‘tokens_clean.txt’’. 
 
@@ -35,14 +33,7 @@ caption.
 * BLEU Score was used as evaluation metrics.
 
 ## RESULTS
-* Generated captions on test images:
-- ![](CODE/images/caption3.JPG)
-- ![](CODE/images/caption4.JPG)
-
 #### UI was created using Flask.
-Screenshot:
-- ![](CODE/images/UserInterface.PNG)
-
 #### Summary
 1. Image sent to CNN(Resnet50).
 2. Last layer of CNN is removed.
